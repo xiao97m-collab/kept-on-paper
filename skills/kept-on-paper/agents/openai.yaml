@@ -1,0 +1,6 @@
+interface:
+  display_name: "纸上留存"
+  short_description: "把真实照片忠实转绘为更值得留下的 3:5 纪念艺术"
+  default_prompt: "使用 $kept-on-paper 处理这张照片；默认进入 Plan 并给出三个有解释的方向，我也可以说 Random 让你直接决定并生成，完成后继续提出修改。"
+policy:
+  allow_implicit_invocation: false
