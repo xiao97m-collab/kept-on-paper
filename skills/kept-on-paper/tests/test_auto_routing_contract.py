@@ -72,6 +72,21 @@ class AutoRoutingContractTest(unittest.TestCase):
         self.assertIn("每次只解释当前卡片实际使用的术语", self.skill)
         self.assertIn("不要粘贴完整术语表", self.skill)
 
+    def test_plan_uses_two_fixed_anchor_families_and_one_adaptive_counterpoint(self):
+        self.assertIn("HIGH_ECHO_TITLE", self.skill)
+        self.assertIn("T3_EDITORIAL_REDRAW", self.skill)
+        self.assertIn("SOURCE_ADAPTIVE_COUNTERPOINT", self.skill)
+        self.assertIn("原安静区约 40%–60%", self.skill)
+        self.assertIn("默认 `SHOULD_TITLE`", self.skill)
+        self.assertIn("第三张卡片", self.skill)
+        self.assertIn("默认从 `T2` 开始", self.skill)
+        self.assertIn("不能把任一方向固化成具体版式", self.skill)
+
+    def test_t3_anchor_is_plan_exploration_not_random_maximalism(self):
+        self.assertIn("仅表示必须提供一个可选择的大胆方案", self.skill)
+        self.assertIn("不让 `RANDOM` 自动追求最大改动", self.skill)
+        self.assertIn("用户选择前不得生成", self.skill)
+
     def test_agent_prompt_exposes_plan_random_and_continuous_revision(self):
         self.assertIn("$kept-on-paper", self.agent_config)
         self.assertIn("默认进入 Plan", self.agent_config)
@@ -80,9 +95,16 @@ class AutoRoutingContractTest(unittest.TestCase):
 
     def test_successful_delivery_invites_source_locked_iteration(self):
         self.assertIn("每次成功交付后必须", self.skill)
-        self.assertIn("如果还有新想法，可以继续告诉我", self.skill)
+        self.assertIn("下一步可改进方向", self.skill)
+        self.assertIn("追加恰好三个", self.skill)
+        self.assertIn("视觉风格/材料", self.skill)
+        self.assertIn("标题内容/字形/文字层级", self.skill)
+        self.assertIn("空间模式/构图/转绘深度", self.skill)
+        self.assertIn("可以回复 `1/2/3`、混合多项", self.skill)
+        self.assertIn("不是重新进入 `PLAN`", self.skill)
+        self.assertIn("不自动再生图", self.skill)
         self.assertIn("后续修改进入 `REUSE_SOURCE`", self.skill)
-        self.assertIn("只修改你提出的部分", self.skill)
+        self.assertIn("只改选中或明确提出的部分", self.skill)
         self.assertIn("不改变用户未提及的事实", self.skill)
 
     def test_active_runtime_has_a_five_minute_hard_budget(self):

@@ -30,6 +30,15 @@ class TitleAutoContractTest(unittest.TestCase):
         self.assertIn("标题负责视觉命名或记忆锚定", self.editor)
         self.assertIn("小句负责不重复的情绪回应", self.editor)
 
+    def test_english_title_is_preferred_only_when_language_quality_is_comparable(self):
+        self.assertIn("两者在 `GROUNDED`、`RESONANT`、`SPECIFIC`", self.skill)
+        self.assertIn("两种语言质量相当时，优先英文短标题", self.editor)
+        self.assertIn("英文偏好不是硬配额", self.editor)
+        self.assertIn("英文主标题 + 中文小句", self.editor)
+        self.assertIn("英文主标题 + 中文支持句", self.typography)
+        self.assertIn("不得是逐字直译", self.editor)
+        self.assertIn("不得为了制造杂志感自动添加伪栏目", self.editor)
+
     def test_emotional_resonance_is_allowed_without_story_invention(self):
         self.assertIn("NARRATIVE_HALLUCINATION", self.editor)
         self.assertIn("EMOTIONAL_RESONANCE", self.editor)

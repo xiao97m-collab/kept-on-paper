@@ -41,6 +41,12 @@ class SourceFidelityContractTest(unittest.TestCase):
         self.assertIn("不按数量强制 Structural Delta", self.fidelity)
         self.assertIn("T0/T1", self.skill)
 
+    def test_plan_may_offer_guarded_t3_without_weakening_execution_safety(self):
+        self.assertIn("PLAN 探索例外", self.fidelity)
+        self.assertIn("受保护的 T3 方向", self.fidelity)
+        self.assertIn("不等于自动执行许可", self.fidelity)
+        self.assertIn("RANDOM", self.fidelity)
+
     def test_exact_marks_have_a_deterministic_failure_route(self):
         self.assertIn("UNRESOLVED_EXACT_MARK", self.fidelity)
         self.assertIn("不得近似、改写或省略", self.fidelity)
