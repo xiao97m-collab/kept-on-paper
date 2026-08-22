@@ -43,7 +43,7 @@ cp -R kept-on-paper/skills/kept-on-paper ~/.codex/skills/kept-on-paper
 使用 $kept-on-paper，以 Random 模式直接帮我决定并生成
 ```
 
-生成后可以继续提出修改，例如：
+生成后，Skill 会基于当前成品追加三个精简的下一步建议，通常覆盖风格、文字与空间/构图。可以回复 `1/2/3`、混合多项，也可以直接提出自己的修改，例如：
 
 ```text
 再抽象一点
@@ -96,7 +96,7 @@ python3 -m unittest discover \
   -p 'test_*.py' -v
 ```
 
-当前公开版本：`v2.18.0`。
+当前发布候选：`v2.21.0`；合并至 `main` 并创建同名标签后成为正式版本。
 
 ## 照片权利与隐私
 
